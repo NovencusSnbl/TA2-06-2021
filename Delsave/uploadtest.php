@@ -1,20 +1,22 @@
  <?php
-// require 'function/conn.php';
-// session_start();
-// if (!isset($_SESSION["login"])) {
-//   header("Location: login.php");
-//   exit;
-// }
- require'function/testupload.php';
+session_start();
+if (!isset($_SESSION["masuk"])) {
+  header("Location: login.php");
+  exit;
+}
+ require'function/RSA/upload.php';
 
- if(isset($_POST["upload"])) {
+
+
+
+ if(isset($_POST["submit"])) {
 
  //cek apakah data berhasil dikirm atau tidak
- if(uploaddata($_POST)>0) {
+ if(tambahdata($_POST)>0) {
  	echo "
  	<script>
  	alert('Data Berhasil ditambahkan');
- 	document.location.href = 'index.php'
+ 	document.location.href = 'baak.php'
  	</script>
  	";
  }
@@ -32,32 +34,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Upload Data Mahasiswa</title>
+	<title>Upload Dokumen</title>
 </head>
+
 <center>
-<body style="background-image:url(image/loker2.jpg);background-size: cover;">
+<body>
 	<br>
 	<br>
 	<br>
 	<br>
 
 	<form action="" method="post" enctype="multipart/form-data">
-		<h1>Upload Data</h1>
+		<h1>Upload Dokumen Mahasiswa</h1>
 		<table>			
-			
 			<div class="container">
-	   
-	    <label><b>File</b></label><br>
-	    <fieldset style="background-color: white">
-	    <input type="file" name="gambar" required style="color: black;padding-top: 6px;padding-bottom: 6px;">
-	    </fieldset>
-
-	        
-	    <input type="hidden" name="status">
-  </div>
+			    
+			    <label><b>Jenis Dokumen</b></label><br>
+			   		 <select name="jenis_dokumen" >
+			            <option value="1">Ijazah</option>
+			            <option value="2">Transkrip Nilai</option>
+			          </select><br>
+			    <br><label><b>NIM</b></label>
+			    <input type="text" placeholder="masukkan sesuai nim mahasiswa" name="mahasiswa_id" required>
+			    <br><br>
+			    <label><b>Attacth File Here!</b></label><br><br>
+			    <input type="file" name="gambar" required">
+			    <br>
+			    
+			    <br>
+			    <br>
+			    
+			    <br>
+			       
+	  		</div>
 		</table>
 		<br>
-		<button type="submit" name="upload" style="width: 93%">Upload data</button>
+		<button type="submit" name="submit">Upload data</button>
 	</form>
 </body>
 </center>

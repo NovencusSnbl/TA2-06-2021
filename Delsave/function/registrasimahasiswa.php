@@ -44,7 +44,7 @@ function registrasi($data){
 
 	//enkripsi password
 	$hash = password_hash($password, PASSWORD_DEFAULT);
-	mysqli_query($conn,"INSERT INTO users VALUES('','1','$username','$hash')");
+	mysqli_query($conn,"INSERT INTO users VALUES('','3','$username','$hash')");
 	return mysqli_affected_rows($conn);
 }
 ?>

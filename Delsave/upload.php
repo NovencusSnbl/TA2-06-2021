@@ -1,24 +1,50 @@
 <?php
 session_start();
 if (!isset($_SESSION["masuk"])) {
-   header("Location: login.php");
-   exit;
+  header("Location: login.php");
+  exit;
+}
+ require'function/RSA/upload.php';
+
+
+
+
+ if(isset($_POST["submit"])) {
+
+ //cek apakah data berhasil dikirm atau tidak
+ if(tambahdata($_POST)>0) {
+  echo "
+  <script>
+  alert('Data Berhasil ditambahkan');
+  document.location.href = 'baak.php'
+  </script>
+  ";
+ }
+ else{
+  echo "
+  <script>
+  alert('Data Gagal ditambahkan');
+  document.location.href = 'uploadtest.php'
+  </script>
+  ";
+ }
  }
 
-?>
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title>Delsave</title>
+  <title>Delsave - Upload</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="logo/logo.png" rel="icon">
+  <link href="assets/img/logo/logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -37,6 +63,30 @@ if (!isset($_SESSION["masuk"])) {
   <link rel="stylesheet" href="uploadstyle/style.css">
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <style type="text/css">
+    .buton-upload{
+      background: #376293;
+      border-radius: 50px;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      float: right;
+      color: white;
+    }
+
+    .buton-upload:hover{
+      background: #fff;
+      transition-duration: 0.2s;
+      color: #376293;
+      border-color: #376293;
+    }
+
+    form{
+      color: #376293;
+    }
+
+  </style>
 
   <!-- =======================================================
   * Template Name: Arsha - v4.0.0
@@ -65,22 +115,11 @@ if (!isset($_SESSION["masuk"])) {
 
   <main id="main">
 
-    <!-- ======= Cliens Section ======= -->
-  
-
- 
-  
-    
-
-   
-
-   
-
-    
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
-
+        <br>
+        <br>
         <div class="section-title">
           <h2>Form Dokumen</h2>
           <!-- p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
@@ -90,79 +129,39 @@ if (!isset($_SESSION["masuk"])) {
 
           <div class="col-lg-5 d-flex align-items-stretch">
             <div class="info">
-              <div class="address">
-                <i class="bi bi-envelope"></i>
-                <h4>Institute Account:</h4>
-                <p>   </p>
-              </div>
-
               <div class="email">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Institusi:</h4>
                 <p>Institut Teknologi Del</p>
               </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Account Hash</h4>
-                <p>G&dk********</p>
-              </div>
-
-              
             </div>
-
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="form-group">
-                <label for="name">Contact Address</label>
-                <p>Novencus Sinambela</p>
-              </div>  
+            <div class="info">
+              <form action="" method="post" enctype="multipart/form-data" >
               <div class="form-group">
-                <label for="name">Learner Account</label>
-                <p>Novencus Sinambela</p>
-              </div>
-              <div class="form-group">
-                <label for="name">Jenis Dokumen</label>
-                <select class="form-control" id="jenis">
-                    <option>Ijazah</option>
-                    <option>Transkip</option>
-                  </select>
-              </div>  
-                <div class="form-group col-md-6">
-                  <label for="name">NIM </label>
-                  <input type="text" name="nim" class="form-control" id="nim" required>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="name">NIK</label>
-                  <input type="text" class="form-control" name="nik" id="nik" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="name">Lampiran</label>
-              
-                  <div class="title">
-                    <h1>Drop file to upload</h1>
-                  </div>
-                  <br>
-                  <center>
-                  <div class="dropzone">
-                    <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
-                    <input type="file" class="upload-input" />
-                  </div>
-                  </center>
+                <label for="name">BAAK Account</label>
+              </div>    
+                <div class="container">
+                    
+                    <label><b>Jenis Dokumen</b></label><br>
+                       <select name="jenis_dokumen" class="form-control">
+                            <option value="1">Ijazah</option>
+                            <option value="2">Transkrip Nilai</option>
+                        </select><br>
 
+                    <label><b>NIM</b></label><br>
+                    <input type="text" placeholder="masukkan sesuai nim mahasiswa" name="mahasiswa_id" class="form-control" required>
+                    <br><br>
+                    <label><b>Attacth File Here!</b></label><br><br>
+                    <input type="file" name="gambar" required">
+                       
                 </div>
-              
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit" style="float: right;">Upload</button></div>
+              <br>
+              <button type="submit" name="submit" class="buton-upload" style="">Upload data</button>
             </form>
+            </div>
           </div>
 
         </div>

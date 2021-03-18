@@ -10,6 +10,7 @@ if(!empty($_POST['enkrip'])){
         //antar tiap karakter dipisahkan dengan "."
         if($i!=strlen($teks)-1){
             $hasil.=".";
+            
         }
     }
 }

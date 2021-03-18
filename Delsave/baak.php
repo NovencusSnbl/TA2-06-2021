@@ -11,11 +11,11 @@ if (!isset($_SESSION["masuk"])) {
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title>DelSave</title>
+  <title>Delsave - Home Page</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -129,7 +129,7 @@ if (!isset($_SESSION["masuk"])) {
 
       </div>
     </section><!-- End Services Section -->
-  </main><!-- End #main -->   
+  </main><!-- End #main -->
   <?php include_once('lib/footer.php'); ?>
       
   <!-- ======= Footer ======= -->

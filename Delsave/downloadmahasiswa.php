@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include 'function/download.php';?>
+include 'function/downloadmahasiswa.php';?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +15,7 @@ include 'function/download.php';?>
     <th>ID</th>
     <th>Jenis Dokumen</th>
     <th>Filename</th>
+
 </thead>
 <tbody>
   <?php foreach ($files as $file): ?>
@@ -30,7 +31,7 @@ include 'function/download.php';?>
       }
 
       ?></td>
-      <td><a href="downloadtest.php?dokumen_id=<?php echo $file['dokumen_id'] ?>"><?php   echo $file['mahasiswa_id']; ?>.pdf</a></td>
+      <td><a href="downloadmahasiswa.php?dokumen_id=<?php echo $file['dokumen_id'] ?>"><?php   echo $file['mahasiswa_id']; ?>.pdf</a></td>
     </tr>
   <?php endforeach;?>
 

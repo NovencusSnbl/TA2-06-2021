@@ -27,6 +27,24 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Jost", sans-serif;
 }
 
+.buton-upload{
+      background: #376293;
+      border-radius: 50px;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      float: right;
+      color: white;
+    }
+
+    .buton-upload:hover{
+      background: #fff;
+      transition-duration: 0.2s;
+      color: #376293;
+      border-color: #376293;
+    }
+
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -1622,6 +1640,7 @@ section {
 #footer {
   font-size: 14px;
   background: #37517e;
+  position: relative;
 }
 
 #footer .footer-newsletter {

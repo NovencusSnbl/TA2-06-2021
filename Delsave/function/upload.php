@@ -17,22 +17,31 @@ function tambahdata($data){
 
  date_default_timezone_set('Asia/Jakarta');
   // Hasil: 20-01-2017 05:32:15
- $nama=htmlspecialchars($data["nama"]);
- $ciri=htmlspecialchars($data["ciri"]);
- $idloker=htmlspecialchars($data["idloker"]);
+ $jenis_dokumen=htmlspecialchars($data["jenis_dokumen"]);
+ $mahasiswa_id=htmlspecialchars($data["mahasiswa_id"]);
+ $creatby= $_SESSION['username'];
+ $result = mysqli_query($conn, "SELECT b.baak_id FROM users u INNER JOIN baak b ON u.users_id = b.users_id WHERE u.username = '$creatby'");  
+ if (mysqli_num_rows($result) === 1) {
+    //cek password
+    $row = mysqli_fetch_assoc($result);
+
+
+ $baak_id=$row["baak_id"];
+
  $gambar = addslashes(upload());
- $status=$data["status"];
- $waktuS=date('Y-m-d H:i:s');		
+ $creatat = date('Y-m-d H:i:s');;		
+ 
 
 
  if (!$gambar){
  	return false;	
  }
  else{
-	$query="INSERT INTO barang VALUES('','$nama','$ciri','$idloker','$gambar','$status','$waktuS','')";
+	$query="INSERT INTO dokumen VALUES('','$jenis_dokumen','$mahasiswa_id','$baak_id','$gambar','$creatby','$creatat','','')";
 	mysqli_query($conn,$query);
 
 	return mysqli_affected_rows($conn);
+  }
  }
 }
 
@@ -52,7 +61,7 @@ function upload(){
  		return false;
 	}
 //cek apakah yang di upload memang gambar
-	$ekstensiGambarValid=['jpg','jpeg','png','gif','jfif'];
+	$ekstensiGambarValid=['jpg','jpeg','pdf'];
 	$ekstensiGambar = explode('.', $namaFile);
 	$ekstensiGambar =strtolower(end($ekstensiGambar));
 
@@ -76,7 +85,7 @@ function upload(){
 	
 	$namaFileBaru .= '.';
 	$namaFileBaru .= $ekstensiGambar;
-	move_uploaded_file($tmpName, 'img/'.$namaFileBaru);
+	move_uploaded_file($tmpName, 'file/'.$namaFileBaru);
 	return $namaFileBaru;
 }
 

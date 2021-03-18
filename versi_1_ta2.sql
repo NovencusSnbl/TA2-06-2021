@@ -7,8 +7,8 @@ USE ta2;
 
 DROP TABLE IF EXISTS mahasiswa;
 
-CREATE TABLE mahasiswa(
-	mahasiswa_id INT(11) PRIMARY KEY,
+CREATE TABLE mahasiswa  (
+	mahasiswa_id INT(11) PRIMARY KEY AUTO_INCREMENT,
 	nim VARCHAR(15) NOT NULL,
 	nama VARCHAR(255) NOT NULL,
 	email VARCHAR(255) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE users(
 
 DROP TABLE IF EXISTS baak;  
 CREATE TABLE baak(
-	baak_id INT(11) NOT NULL PRIMARY KEY,
+	baak_id INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	nama VARCHAR(30) NOT NULL,
 	users_id INT(11) NOT NULL,
 	email VARCHAR(255) NOT NULL,
@@ -59,7 +59,8 @@ CREATE TABLE dokumen(
 	baak_id INT(11) NOT NULL,
 	ipk FLOAT(10) NOT NULL,
 	tahun DATE NOT NULL,
-	foto BLOB NOT NULL,
+	file_mahasiswa VARCHAR(255) NOT NULL,
+	hash_file VARCHAR(255) NOT NULL,
 	created_by VARCHAR(32) DEFAULT NULL,
 	created_at DATETIME DEFAULT NULL,
 	updated_by VARCHAR(32) DEFAULT NULL,

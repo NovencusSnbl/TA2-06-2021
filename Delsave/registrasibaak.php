@@ -1,55 +1,17 @@
- <?php
- session_start();
- require 'function/conn.php';
-  if (isset($_POST['masuk'])) {
-  
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-    
-    //username udah ada apa belum
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");  
-
-    //cek username
-    if (mysqli_num_rows($result) === 1) {
-    //cek password
-    $row = mysqli_fetch_assoc($result);
-    if (password_verify($password,$row["PASSWORD"])) {
-      //set session
-       $_SESSION["masuk"] = true;
-       $_SESSION['username'] = $username;
-
-        if ($row["role"] == 1) {
-
-        header("Location: index.php");
-        // header("Location : awal.php");
-        exit;
-       }
-
-       else if ($row["role"] == 2) {
-
-        header("Location: baak.php");
-        // header("Location : awal.php");
-        exit;
-       }
-
-       else{
-
-        header("Location: mahasiswa.php");
-        exit;
-       }
-
-
-      }
-      else{
-        echo "<script>
-        alert('Username atau password tidak sesuai!');
-       </script>";
-        $error = true;  
-      }
-    }
-
-  }
-
+<?php 
+require 'function/registrasibaak.php'; 
+if (isset($_POST["register"])) {
+	if (registrasi($_POST) > 0) {
+		echo "
+			<script>
+				alert ('user baru berhasil ditambahkan!');
+			</script>
+		";
+	}
+	else {
+		echo mysqli_error($conn);
+	}
+}
 
 ?>
 <!DOCTYPE html>
@@ -60,7 +22,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title>Delsave - Login</title>
+  <title>Delsave - Registrasi Admin</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -85,17 +47,18 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <style type="text/css">
-    .buton-upload{
+    .button-regis{
       background: #376293;
       border-radius: 50px;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-left: 40px;
+      padding-right: 40px;
       padding-top: 10px;
       padding-bottom: 10px;
       color: white;
+      float: right;
     }
 
-    .buton-upload:hover{
+    .button-regis:hover{
       background: #fff;
       transition-duration: 0.2s;
       color: #376293;
@@ -119,9 +82,9 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <br>
+          <br><br>
           <p>Sign In If you have an account</p>
-          <h2>Sing In</h2>
+          <h2>Akun BAAK</h2>
           <!-- p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
         </div>
 
@@ -149,16 +112,12 @@
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
             <div class="info">
             <div class="login-page">
-              <div class="form">
-                <form class="login-form" action="" method="POST">
-                  <input type="text" name="username" class="form-control" placeholder="username" />
-                  <br>
-                  <input type="password" name="password" class="form-control" placeholder="password" />
-                  <br>
-                  <div class="text-center">
-                    <button type="submit"  name="masuk" class="buton-upload">Masuk</button>
-                  </div>
-                </form>
+              <form action="" method="post">
+	              	<input type="text" name="username" class="form-control" placeholder="username" /><br>
+	              	<input type="password" name="password" class="form-control" placeholder="password" /><br>
+					<input type="password" name="password2" class="form-control" placeholder="re-entry password" /><br>
+					<button type="submit" name="register" class="button-regis">Register</button>
+				</form>
               </div>
             </div>
           </div>

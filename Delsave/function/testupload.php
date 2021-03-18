@@ -28,6 +28,9 @@ function uploaddata($data){
 	return mysqli_affected_rows($conn);
  }
 }
+
+
+
 function upload(){
 	$namaFile = $_FILES['gambar']['name'];
 	$ukuranFile= $_FILES['gambar']['size'];

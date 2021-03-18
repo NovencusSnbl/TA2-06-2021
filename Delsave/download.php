@@ -1,20 +1,41 @@
+<?php 
+session_start();
+if (!isset($_SESSION["masuk"])) {
+   header("Location: login.php");
+   exit;
+ }
+include 'function/download.php';?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <title>Delsave</title>
+  <title>Delsave - Download</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="logo/logo.png" rel="icon">
+  <link href="assets/img/logo/logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <script src='https://100dayscss.com/codepen/js/jquery.min.js'></script><script  src="uploadstyle/script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="uploadstyle/style.css">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -68,64 +89,49 @@
 
           <div class="col-lg-5 d-flex align-items-stretch">
             <div class="info">
-              <div class="address">
-                <i class="bi bi-envelope"></i>
-                <h4>Institute Account:</h4>
-                <p>   </p>
-              </div>
-
+              
               <div class="email">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Institusi:</h4>
                 <p>Institut Teknologi Del</p>
               </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Account Hash</h4>
-                <p>G&dk********</p>
-              </div>
-
               
             </div>
 
           </div>
 
-          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="form-group">
-                <label for="name">Contact Address</label>
-                <p>Tanah lapang, Porsea</p>
-              </div>  
-              <div class="form-group">
-                <label for="name">Learner Account</label>
-                <p>Novencus Sinambela</p>
-              </div>
-              <div class="form-group">
-                <label for="name">Jenis Dokumen</label>
-                <select class="form-control" id="jenis">
-                    <option>Ijazah</option>
-                    <option>Transkip</option>
-                  </select>
-              </div>  
-                <div class="form-group col-md-6">
-                  <label for="name">Dokumen digital Hash</label>
-                    <p>4fsFsff*****************8</p>
-                </div>
-                <div class="form-group col-md-6">
-                  <div class="text-center"><button type="submit" >Download</button></div>
-                </div>
-              </div>
+          <div class="col-lg-7 d-flex align-items-stretch">
+            <div class="info">
               
+              <table class="table">
+                <thead>
+                    <th>ID</th>
+                    <th>Jenis Dokumen</th>
+                    <th>Filename</th>
+                </thead>
+                <tbody>
+                  <?php foreach ($files as $file): ?>
+                    <tr>
+                      <td><?php echo $file['dokumen_id']; ?></td>
+                      <td><?php 
+                      if( $file['jenis_dokumen'] ==1){
+                          echo "Ijazah";
+                      }
+                      else
+                      {
+                        echo "Transkrip Nilai";
+                      }
+
+                      ?></td>
+                      <td><a href="download.php?dokumen_id=<?php echo $file['dokumen_id'] ?>"><?php   echo $file['mahasiswa_id']; ?>.pdf</a></td>
+                    </tr>
+                  <?php endforeach;?>
+
+                </tbody>
+              </table>
               
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              
-            </form>
+            </div>
+
           </div>
 
         </div>

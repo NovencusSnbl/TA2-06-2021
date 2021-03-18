@@ -20,7 +20,7 @@ if (!isset($_SESSION["masuk"])) {
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/logo/logo.png" rel="icon">
+  <link href="logo/logo.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -56,7 +56,7 @@ if (!isset($_SESSION["masuk"])) {
       
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      <?php include_once('lib/navbar.php'); ?>
+      <?php include_once('lib/navbarmahasiswa.php'); ?>
       
     </div>
   </header><!-- End Header -->
@@ -129,7 +129,7 @@ if (!isset($_SESSION["masuk"])) {
 
       </div>
     </section><!-- End Services Section -->
-  </main><!-- End #main -->   
+  </main><!-- End #main -->
   <?php include_once('lib/footer.php'); ?>
       
   <!-- ======= Footer ======= -->
