@@ -56,7 +56,7 @@ if (!isset($_SESSION["masuk"])) {
       
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      <?php include_once('lib/navbar.php'); ?>
+      <?php include_once('lib/navbaradmin.php'); ?>
       
     </div>
   </header><!-- End Header -->

@@ -1,5 +1,11 @@
 <?php 
 require 'function/registrasi.php'; 
+session_start();
+if (!isset($_SESSION["masuk"])) {
+   header("Location: login.php");
+   exit;
+ }
+
 if (isset($_POST["register"])) {
 	if (registrasi($_POST) > 0) {
 		echo "
@@ -69,12 +75,17 @@ if (isset($_POST["register"])) {
 </head>
 
 <body>
-  <header id="header" class="fixed-top stylenavbar" >
+  <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.php">Delsave</a></h1>
+      <h1 class="logo me-auto"><a href="index.php">DelSave</a></h1>
+      
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <?php include_once('lib/navbaradmin.php'); ?>
+      
     </div>
-  </header>
+  </header><!-- End Header -->
 
   <main id="main">
     <!-- ======= Contact Section ======= -->
@@ -161,6 +172,13 @@ if (isset($_POST["register"])) {
       </form>
     </div>
   </div> -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <br>
   <br>
   <br>
