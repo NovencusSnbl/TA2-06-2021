@@ -58,14 +58,13 @@ include 'function/download.php';?>
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
-
 <body>
 
   <!-- ======= Header ======= -->
  <header id="header" class="fixed-top " style="background-color: #376293">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">DelSave</a></h1>
+      <h1 class="logo me-auto"><a href="index.php">DelSave</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -123,7 +122,7 @@ include 'function/download.php';?>
                       }
 
                       ?></td>
-                      <td><a href="download.php?dokumen_id=<?php echo $file['dokumen_id'] ?>"><?php   echo $file['mahasiswa_id']; ?>.pdf</a></td>
+                      <td><a href="download.php?dokumen_id=<?php echo $file['dokumen_id'] ?>"><?php   echo $file['alumni_id'];?>.pdf</a></td>
                     </tr>
                   <?php endforeach;?>
 
@@ -142,6 +141,24 @@ include 'function/download.php';?>
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <footer id="footer">
 
     
