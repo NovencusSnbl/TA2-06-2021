@@ -4,9 +4,7 @@ if (!isset($_SESSION["masuk"])) {
   header("Location: login.php");
   exit;
 }
- require'function/RSA/upload.php';
-
-
+require'function/RSA/upload.php';
 
 
  if(isset($_POST["submit"])) {
@@ -39,11 +37,7 @@ if (!isset($_SESSION["masuk"])) {
 
 <center>
 <body>
-	<br>
-	<br>
-	<br>
-	<br>
-
+	<br><br><br><br>
 	<form action="" method="post" enctype="multipart/form-data">
 		<h1>Upload Dokumen Mahasiswa</h1>
 		<table>			
@@ -59,12 +53,7 @@ if (!isset($_SESSION["masuk"])) {
 			    <br><br>
 			    <label><b>Attacth File Here!</b></label><br><br>
 			    <input type="file" name="gambar" required">
-			    <br>
-			    
-			    <br>
-			    <br>
-			    
-			    <br>
+			    <br><br><br><br>
 			       
 	  		</div>
 		</table>

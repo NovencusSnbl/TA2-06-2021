@@ -1,10 +1,11 @@
 
 <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto " href="index.php">Home</a></li>
+          <li><a class="nav-link scrollto " href="baak.php">Home</a></li>
           <li><a class="nav-link scrollto" href="Upload.php">Upload</a></li>
           <li><a class="nav-link  scrollto" href="download.php">View</a></li>
-          <li><a class="nav-link  scrollto" href="../contract/index.html">Get Contract</a></li>
+          <li><a class="nav-link  scrollto" href="../SigningMessage/index.php">Signing Message</a></li>
+          <li><a class="nav-link  scrollto" href="../VerifyMessage/index.php">Verifikasi</a></li>
           <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>

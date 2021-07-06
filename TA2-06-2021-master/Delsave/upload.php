@@ -7,8 +7,6 @@ if (!isset($_SESSION["masuk"])) {
  require'function/RSA/upload.php';
 
 
-
-
  if(isset($_POST["submit"])) {
 
  //cek apakah data berhasil dikirm atau tidak
@@ -24,7 +22,7 @@ if (!isset($_SESSION["masuk"])) {
   echo "
   <script>
   alert('Data Gagal ditambahkan');
-  document.location.href = 'uploadtest.php'
+  document.location.href = 'upload.php'
   </script>
   ";
  }
@@ -87,13 +85,6 @@ if (!isset($_SESSION["masuk"])) {
     }
 
   </style>
-
-  <!-- =======================================================
-  * Template Name: Arsha - v4.0.0
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -103,26 +94,19 @@ if (!isset($_SESSION["masuk"])) {
     <div class="container d-flex align-items-center">
 
       <h1 class="logo me-auto"><a href="index.html">DelSave</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <?php include_once('lib/navbar.php'); ?>
       
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
+  </header>
   
 
   <main id="main">
-
-    <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
         <br>
         <br>
         <div class="section-title">
           <h2>Form Dokumen</h2>
-          <!-- p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
         </div>
 
         <div class="row">
@@ -146,10 +130,10 @@ if (!isset($_SESSION["masuk"])) {
                 <div class="container">
                     
                     <label><b>Jenis Dokumen</b></label><br>
-                       <select name="jenis_dokumen" class="form-control">
-                            <option value="1">Ijazah</option>
-                            <option value="2">Transkrip Nilai</option>
-                        </select><br>
+                      <select name="jenis_dokumen" class="form-control">
+                          <option value="1">Ijazah</option>
+                          <option value="2">Transkrip Nilai</option>
+                      </select><br>
 
                     <label><b>NIM</b></label><br>
                     <input type="text" placeholder="masukkan sesuai nim mahasiswa" name="mahasiswa_id" class="form-control" required>
@@ -180,10 +164,6 @@ if (!isset($_SESSION["masuk"])) {
         &copy; Copyright <strong><span>DelSave</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
         Designed by <a href="https://bootstrapmade.com/">Institut Teknologi Del</a>
       </div>
     </div>

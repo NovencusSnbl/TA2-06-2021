@@ -51,12 +51,6 @@ include 'function/download.php';?>
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Arsha - v4.0.0
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -66,8 +60,6 @@ include 'function/download.php';?>
     <div class="container d-flex align-items-center">
 
       <h1 class="logo me-auto"><a href="index.html">DelSave</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <?php include_once('lib/navbar.php'); ?>
       
@@ -82,22 +74,16 @@ include 'function/download.php';?>
 
         <div class="section-title">
           <h2>Dokumen</h2>
-          <!-- p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
         </div>
-
         <div class="row">
-
           <div class="col-lg-5 d-flex align-items-stretch">
             <div class="info">
-              
               <div class="email">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Institusi:</h4>
                 <p>Institut Teknologi Del</p>
               </div>
-              
             </div>
-
           </div>
 
           <div class="col-lg-7 d-flex align-items-stretch">
@@ -126,38 +112,16 @@ include 'function/download.php';?>
                       <td><a href="download.php?dokumen_id=<?php echo $file['dokumen_id'] ?>"><?php   echo $file['mahasiswa_id']; ?>.pdf</a></td>
                     </tr>
                   <?php endforeach;?>
-
                 </tbody>
               </table>
-              
             </div>
-
           </div>
-
         </div>
-
       </div>
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-    
-    <div class="container footer-bottom clearfix">
-      <div class="copyright">
-        &copy; Copyright <strong><span>DelSave</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-        Designed by <a href="https://bootstrapmade.com/">Institut Teknologi Del</a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
 
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -175,5 +139,4 @@ include 'function/download.php';?>
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>

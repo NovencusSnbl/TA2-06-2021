@@ -103,6 +103,11 @@ rename($filename1.".txt", 'enkripsi/'.$filename1.".txt");
 rename($filename2.".txt", 'enkripsi/'.$filename2.".txt");
 rename($filename4.".txt", 'enkripsi/'.$filename4.".txt");
 
+// Read and write for owner, nothing for everybody else
+// chmod('enkripsi/'.$filename1.".txt",0600);
+// chmod('enkripsi/'.$filename2.".txt",0600);
+// chmod('enkripsi/'.$filename4.".txt",0600);
+
 $gambar = addslashes(upload());
 
 $hasil="";
@@ -122,6 +127,9 @@ $hasil="";
  
 $filename5 = $jenis_dokumen."_messagedigest".$mahasiswa_id;   
 rename($filename5.".txt", 'enkripsi/'.$filename5.".txt");
+
+// Read and write for owner, nothing for everybody else
+// chmod('enkripsi/'.$filename5.".txt",0600);
 
 $creatat = date('Y-m-d H:i:s');;
 
@@ -158,7 +166,7 @@ function upload(){
 		</script>";
  		return false;
 	}
-//cek apakah yang di upload memang gambar
+//cek apakah yang di upload memang file/gambar
 	$ekstensiGambarValid=['jpg','jpeg','pdf'];
 	$ekstensiGambar = explode('.', $namaFile);
 	$ekstensiGambar =strtolower(end($ekstensiGambar));
