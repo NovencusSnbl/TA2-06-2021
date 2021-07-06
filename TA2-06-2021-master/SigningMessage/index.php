@@ -95,14 +95,14 @@
                         </tr>
                       </table>
                     </div>
-                    <a href="#" onclick="registerSetInfo()" class="btn btn-primary">Set</a>
+                    <a href="#" onclick="registerSetInfo()" class="btn btn-primary">Sign Message</a>
                   </form>
                 </div>
               </div>    
 
               <div class="row">
                 <div>
-                  <h3 class="sub-header">Get last information saved</h3>
+                  <h3 class="sub-header">Message Terakhiir</h3>
                   <form class="form-inline" role="form">
                     <a href="#" onclick="registerGetInfo()" class="btn btn-primary">Get</a>
                     <div class="form-group">
